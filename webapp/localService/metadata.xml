@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://dev:8070/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='S4ALIAS')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zui_fi_pagtos_justif" xml:lang="pt" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="PagamentosJustificadosType" sap:label="Relatório de Pagamentos Justificados" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzvalefrete"/>
+                    <PropertyRef Name="Ebeln"/>
+                </Key>
+                <Property Name="Zzvalefrete" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="VF Id" sap:quickinfo="VF ID"/>
+                <Property Name="Ebeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Vale de frete" sap:quickinfo="Nº do documento de compras"/>
+                <Property Name="Digitalizacoes" Type="Edm.Int32" sap:label="Qtd Digitalizações"/>
+                <Property Name="Notas" Type="Edm.Int32" sap:label="Qtd Notas"/>
+                <Property Name="Belnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Pagamento 1" sap:quickinfo="Nº documento de um documento contábil"/>
+                <Property Name="Belnr2" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Pagamento 2" sap:quickinfo="Nº documento de um documento contábil"/>
+                <Property Name="Wrbtr" Type="Edm.Decimal" Precision="15" Scale="2" sap:label="Valor"/>
+                <Property Name="Budat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data Pgto" sap:quickinfo="Data de lançamento no documento"/>
+                <Property Name="Bupla" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:filter-restriction="single-value" sap:required-in-filter="true" sap:text="BuplaTxt" sap:label="Loc.negócios" sap:quickinfo="Local de negócios" sap:value-list="fixed-values"/>
+                <Property Name="UsuarioJustificativa" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Usuário Justif" sap:quickinfo="Nome do usuário"/>
+                <Property Name="DataJustificativa" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Data Justif" sap:quickinfo="Data"/>
+                <Property Name="Justificativa" Type="Edm.String" MaxLength="255" sap:display-format="UpperCase" sap:label="Justificativa" sap:quickinfo="Justificativa Pagamento"/>
+                <Property Name="StatusDesc" Type="Edm.String" MaxLength="10" sap:label="Status"/>
+                <Property Name="Status" Type="Edm.Byte"/>
+                <Property Name="BuplaTxt" Type="Edm.String" MaxLength="30" sap:label="Nome 1" sap:quickinfo="Nome"/>
+            </EntityType>
+            <EntityType Name="ZI_FI_FILIAS_USUARIO_VHType" sap:label="Search Help para Filiais do Usuário" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Branch"/>
+                </Key>
+                <Property Name="Branch" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="BranchName" sap:label="Local de negócios"/>
+                <Property Name="BranchName" Type="Edm.String" MaxLength="30" sap:label="Nome 1" sap:quickinfo="Nome"/>
+            </EntityType>
+            <EntityContainer Name="cds_zui_fi_pagtos_justif_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="PagamentosJustificados" EntityType="cds_zui_fi_pagtos_justif.PagamentosJustificadosType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ZI_FI_FILIAS_USUARIO_VH" EntityType="cds_zui_fi_pagtos_justif.ZI_FI_FILIAS_USUARIO_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="cds_zui_fi_pagtos_justif.PagamentosJustificadosType/Bupla" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Loc.negócios"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_FI_FILIAS_USUARIO_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bupla"/>
+                                    <PropertyValue Property="ValueListProperty" String="Branch"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="BranchName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_fi_pagtos_justif.cds_zui_fi_pagtos_justif_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_fi_pagtos_justif.cds_zui_fi_pagtos_justif_Entities/PagamentosJustificados" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="RequiresFilter" Bool="true"/>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>Bupla</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Bupla"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://dev:8070/sap/opu/odata/sap/ZGW_FI_PAGTOS_JUSTIF/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://dev:8070/sap/opu/odata/sap/ZGW_FI_PAGTOS_JUSTIF/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
